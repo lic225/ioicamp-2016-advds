@@ -429,8 +429,385 @@ void split( Node *t , int k , Node *&a , Node *&b ) {
           </ul>
         </section>
         <section>
-          <h2>整體二分</h2>
-          <h2>操作分治</h2>
+          <section>
+            <h1>整體二分</h1>
+          </section>
+          <section>
+            要二分搜的太多了 <br>
+            大家一起來共用檢查時算出的資訊吧
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Meteor</h2>
+            長度 $M$ 的序列，一開始都是0 <br>
+            $N$ 個人瓜分這個序列，每個人有他的目標 $g_i$ <br>
+            $K$ 次操作，每次都是序列某個區間全部加上 $x_i > 0$ <br>
+            問每個人什麼時候達到目標 <br>
+            也就是擁有的元素加起來 $\ge g_i$
+          </section>
+          <section>
+            每個人二分搜啥時好字 <br>
+            用可持久線段樹維護每個操作做完的序列長相
+          </section>
+          <section>
+            時間 $O((M+N) \log K \log M)$ <br>
+            空間 $O(K \log M)$
+          </section>
+          <section>
+            <h1 style="color:red;">MLE</h1>
+            mempry limit: 64 mb
+          </section>
+        </section>
+        <section>
+          <section>
+            開 $K$ 棵線段樹真的太虧了 <br>
+            看來不能每個人各自二分搜了
+          </section>
+          <section>
+            那也只好大家一起二分搜了
+            <pre>
+              <code>
+typedef vector&lt; int &gt; VI;
+void totBS( int s , int e , VI nation ) {
+  if(s > e || nation.size() == 0)
+    return ;
+  int mid = (s + e) / 2;
+
+  do_things( s , mid );
+
+  VI ok, notok;
+  split( mid , nation , ok , notok );
+
+  undo_things( s , mid );
+
+  totBS( s , mid-1 , ok );
+  totBS( mid+1 , e , notok );
+}
+              </code>
+            </pre>
+          </section>
+          <section>
+            看那些人可以在 <tt>mid</tt> 之前達到目標 <br>
+            可以的丟去二分搜 $[s, mid-1]$ <br>
+            不行的丟去二分搜 $[mid+1, e]$
+          </section>
+          <section>
+            把 $[s,mid]$ 的操作作用一番 <br>
+            BIT 維護之
+            <pre>
+              <code>
+void do_things( int s , int mid ) {
+  for( int i = s ; i <= mid ; i++ ) {
+    int nl = in[ i ].l , nr = in[ i ].r;
+    ll nnu = in[ i ].nu;
+    bit.upd(nl, nnu);
+    bit.upd(nr+1, -nnu);
+  }
+}
+              </code>
+            </pre>
+          </section>
+          <section>
+            看那些人在 <tt>mid</tt> 前可以被滿足 <br>
+            並且更新他們的目標 (把 $[s, mid]$ 對他們貢獻扣掉)
+            <pre>
+              <code>
+void split( int mid , VI& nation , VI& ok , VI& notok ) {
+  for( int nat : nation ) {
+    tem[nat] = 0ll;
+    for( int it : satel[ nat ] ) {
+      tem[nat] += bit.qry(it);
+      if(tem[nat] >= need[nat])
+        break;
+    }
+    if(tem[nat] >= need[nat]) {
+      ok.push_back(nat);
+      if(ans[nat] > 0) ans[nat] = min(ans[nat], mid);
+      else ans[nat] = mid;
+    }
+    else {
+      need[nat] -= tem[nat];
+      notok.push_back(nat);
+    }
+  }
+  // 真的把 nation 佔的記憶體釋放掉
+  VI ().swap( nation );
+}
+              </code>
+            </pre>
+          </section>
+          <section>
+            把 BIT 還原 <br>
+            還給子孫乾淨的 BIT
+            <pre>
+              <code>
+void undo_things( int s , int mid ) {
+  for(int i = s; i <= mid; i++) {
+    int nl = in[i].l, nr = in[i].r;
+    ll nnu = in[i].nu;
+    bit.upd(nl, -nnu);
+    bit.upd(nr+1, nnu);
+  }
+}
+              </code>
+            </pre>
+          </section>
+          <section>
+            時間： $O((N+M+K)\log M \log K)$ <br>
+            空間： $O(M)$ (這寫法空間真的是線性嗎^^)
+          </section>
+          <section>
+            <h1 style="color:green;">AC</h1>
+            其實這作法好好寫可以不用 BIT <br>
+            時間少一個 $O(\log M)$ <br>
+            空間也是好好線性
+          </section>
+        </section>
+        <section>
+          <section>
+            <h1>操作分治</h1>
+          </section>
+          <section>
+            在線好難做 <br>
+            把操作們整理成方便處理的順序 <br>
+            變得好做
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Machine works</h2>
+            給你 $N, t_i, g_i, r_i, p_i$ <br>
+            $N \le 10^5$, $t_i$ 遞增 <br>
+            計算下列 DP 式 : <br>
+            $dp[i] = \max_{j < i}\{ g_j t_i + (r_j - p_j + dp[j] - (t_j+1)g_j) \}$
+          </section>
+          <section>
+            阿不就斜率優化 DP <br>
+            deque 做過去就沒啦
+          </section>
+          <section>
+            可是 $g_j$ 沒有單調性 <br>
+            <h2 style="color:red;">慘</h2>
+          </section>
+          <section>
+            用平衡樹維護下凸包 <br>
+            算好一個 $dp[i]$ 後 <br>
+            把 $y = g_i x + (r_j - p_j + dp[i] - (t_j+1)g_j)$ 塞進去 <br>
+            把附近斜率不必要的線拔掉 <br>
+            一堆邊界條件好難寫
+          </section>
+          <section>
+            <h2>好希望 $g_j$ 有單調性阿~~</h2>
+          </section>
+          <section>
+            <h3>想想分治</h3>
+            先把 $dp[1\ldots\frac{N}{2}]$ 做完 <br>
+            按照 $g_j$ 排好 <br>
+            那就可以輕鬆做 $dp[\frac{N}{2}+1\ldots N]$ 了耶 <br>
+          </section>
+          <section>
+            所以可以得到長這樣的作法
+            <pre>
+              <code class="c++">
+void solve( int l , int r ) {
+  if( l == r ) return ;
+  int mid = ( l + r ) / 2;
+  solve( l , mid );
+  // 把 [l, mid] 整理好
+  // 算 [l, mid] 對 [mid+1, r] 答案的影響
+  solve( mid+1 , r );
+}
+              </code>
+            </pre>
+          </section>
+          <section>
+            整理好就只是 <br>
+            先把線做出來，排序好
+            <pre>
+              <code class="c++">
+vector&lt; Line &gt; lns , stk;
+lns.clear();
+for( int i = l ; i <= mid ; i++ )
+  if( in[ i ].dp >= in[ i ].P ) {
+    Ln l1{
+      in[ i ].G ,
+      in[ i ].dp-in[ i ].P+in[ i ].R
+      -( in[ i ].D+1ll )*in[ i ].G
+    };
+    lns.push_back( l1 );
+  }
+sort( lns.begin() , lns.end() );
+              </code>
+            </pre>
+          </section>
+          <section>
+            然後做出下凸包，把不必要的線拿走
+            <pre>
+              <code class="c++">
+stk.clear();
+for( Ln l1 : lns ) {
+  while( stk.size()
+      && stk.back().m == l1.m
+      && stk.back().b < l1.b )
+    stk.pop_back();
+  if( stk.size() && stk.back().m == l1.m ) continue ;
+  while( stk.size() >= 2
+      && !ok( stk[ stk.size() - 2 ] ,
+              stk[ stk.size() - 1 ] , l1 ) )
+    stk.pop_back();
+  stk.push_back( l1 );
+}
+              </code>
+            </pre>
+          </section>
+          <section>
+            <h2>不必要的線？</h2>
+            像圖中紅色的線就是爛線 <br>
+            <img width="480" height="360" src="https://docs.google.com/drawings/d/1BqjjxB_vTFAIWztaMp5fjLpv2UDXwFTjM7JnaRZRDtU/pub?w=960&h=720" alt="" />
+          </section>
+          <section>
+            接下來就是要去更新 $[mid+1, r]$ 的 dp 值了 <br>
+            <pre>
+              <code class="c++">
+int j = 0;
+for( int i = mid+1 ; i <= r ; i++ ) {
+  ll x = in[ i ].D;
+  while( j + 1 < (int)stk.size()
+      && stk[ j ]( x ) < stk[ j+1 ]( x ) )
+    j++;
+  in[ i ].dp = max( in[ i ].dp , stk[ j ]( x ) );
+}
+dq( mid + 1 , r );
+              </code>
+            </pre>
+          </section>
+          <section>
+            這裡只處理 $[l, mid]$ 對 $dp[i]$ 的影響 <br>
+            $[mid+1, i-1]$ 的影響透過 <tt>dq(mid+1, r)</tt> 遞迴搞定
+          </section>
+          <section>
+            <h2>j 是來幹嘛的</h2>
+            隨著 $t_i$ 遞增，讓 $m \times t_i + b$ 最大的 $m$ 會遞增 <br>
+            <img src="https://docs.google.com/drawings/d/1FpZLaTbC1ohYQJHsEvcEiykc-yp8eV2sSQ1lEDbe5bc/pub?w=480&h=360" alt="" />
+          </section>
+          <section>
+            好好 merge sort 線的斜率的話 <br>
+            時間 : $O(N \log N)$
+          </section>
+        </section>
+        <section>
+          <h1>例題們</h1>
+        </section>
+
+        <section>
+          <section>
+            <h1>Cup trick</h1>
+          </section>
+          <section>
+            Treap 維護序列，節點記原始位置與上面貼紙數字 (一開始為未知) <br>
+            每次移動就可以確定一個節點貼紙是啥
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Peaks</h1>
+          </section>
+          <section>
+            用 Treap 維護連通塊，以點權做 key <br>
+            把邊照邊權由小到大排序 <br>
+            把詢問離線，按照小到大慢慢把邊加進來 <br>
+            啟發式合併兩個連通塊，然後找第 k 小
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>蚯蚯扭扭</h1>
+          </section>
+          <section>
+            用 Copy-on-write Treap 維護字串 <br>
+            反轉的 tag 要小心 push
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>子矩陣第 k 小</h1>
+          </section>
+          <section>
+            整體二分 <br>
+            看每個詢問的子矩陣裡有多少 $\le mid$ <br>
+            所以用二維 BIT 維護子矩陣裡 $\le mid$ 個數
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>動態區間第 k 小</h1>
+          </section>
+          <section>
+            <h2>法1</h2>
+            BIT 套 可持久線段樹 <br>
+            <tt>root[i]</tt> 代表 $(i-lowbit(i), i]$ 做出來的線段樹 <br>
+            更新就動那 $O(\log N)$ 棵線段樹 <br>
+            查詢就同時走 $O(\log N)$ 棵線段樹
+          </section>
+          <section>
+            <h2>法2</h2>
+            整體二分 <br>
+            對於每個區間看裏面多少 $\le mid$ <br>
+            因為有修改，所以值有保存日期 (區間) <br>
+            所以一個值除了位置還有存活期間要紀錄 <br>
+            拆成進入跟離開然後跟詢問依起排序之後掃過去 <br>
+            用 BIT 維護區間 $\le mid$ 個數
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>D-QUERY(在線)</h1>
+          </section>
+          <section>
+            用可持久線段樹 $s_r$ 記 $a_1,\ldots,a_r$ 裡最後一次出現 $i$ 有幾種數字 <br>
+            對於詢問 $[l, r]$ 就是 $s_r$ 裡最後一次出現在 $[l, r]$ 裡的有幾種 <br>
+            就 $s_r$ 上 $[l, r]$ 的和就是了
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>動態逆序對</h1>
+          </section>
+          <section>
+            操作分治 <br>
+            第 $k$ 次刪除 $a_i$ 少掉的逆序對就是： <br>
+            <ul>
+              <li>前大：原始序列裡在他前面比他大 (BIT 預處理)</li>
+              <li>後小：在他後面比他小 (BIT 預處理)</li>
+            </ul> <br>
+            但要加回來第 $1 \sim k-1$ 次刪除裡符合前兩項條件的 <br>
+          </section>
+          <section>
+            用操作分治算每次刪除要加回來多少 <br>
+            對位置雙指針 <br>
+            用 BIT 維護第 $l \sim mid$ 次刪除裡 $> a_i$ 的有幾個 <br>
+            然後反過來再做一次 (算後小)
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>總結</h1>
+          </section>
+          <section>
+            <ul>
+              <li>Treap as 線段樹</li>
+              <li>Copy on write 維護歷史版本</li>
+              <li>分治想法解決資料結構題</li>
+            </ul>
+          </section>
         </section>
 			</div>
 
