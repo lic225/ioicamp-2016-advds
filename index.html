@@ -4,18 +4,12 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>reveal.js – The HTML Presentation Framework</title>
-
-		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
-		<meta name="author" content="Hakim El Hattab">
-
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+		<title>真 資料結構EX 改</title>
 
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/theme/solarized.css" id="theme">
 
 		<!-- Code syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -41,341 +35,403 @@
 			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> / <a href="http://twitter.com/hakimel">@hakimel</a></small>
-					</p>
-				</section>
-
-				<section>
-					<h2>Hello There</h2>
-					<p>
-						reveal.js enables you to create beautiful interactive slide decks using HTML. This presentation will show you examples of what it can do.
-            454545454
-					</p>
-				</section>
-
-				<!-- Example of nested vertical slides -->
-				<section>
 					<section>
-						<h2>Vertical Slides</h2>
-						<p>Slides can be nested inside of each other.</p>
-						<p>Use the <em>Space</em> key to navigate through all slides.</p>
-						<br>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
+						<h1>乂真資結EX改乂</h1>
+						<h3>成為十萬序列王</h3>
+						<h5>akaiNeko</h5>
 					</section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+						<h2>whoami</h2>
+						<img height="200" width="200" src="https://scontent-tpe1-1.xx.fbcdn.net/hphotos-xat1/v/t1.0-9/11221348_1198872716805403_2087729395243443605_n.jpg?oh=7159874d7ab57f821ddb44439680ddb7&oe=57295774" alt="" />
 					</section>
 					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
-						<br>
-						<a href="#/2">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
-						</a>
+						<h2>PECaveros</h2>
+						<ul>
+							<li>Paul : 數學,小品,字串,DP</li>
+							<li>Eddy : 寫code,爆搜,幾何</li>
+							<li>我 : 打雜,資結,字串</li>
+						</ul>
 					</section>
 				</section>
-
 				<section>
-					<h2>Slides</h2>
-					<p>
-						Not a coder? Not a problem. There's a fully-featured visual editor for authoring these, try it out at <a href="http://slides.com" target="_blank">http://slides.com</a>.
-					</p>
-				</section>
-
-				<section>
-					<h2>Point of View</h2>
-					<p>
-						Press <strong>ESC</strong> to enter the slide overview.
-					</p>
-					<p>
-						Hold down alt and click on any element to zoom in on it using <a href="http://lab.hakim.se/zoom-js">zoom.js</a>. Alt + click anywhere to zoom back out.
-					</p>
-				</section>
-
-				<section>
-					<h2>Touch Optimized</h2>
-					<p>
-						Presentations look great on touch devices, like mobile phones and tablets. Simply swipe through your slides.
-					</p>
-				</section>
-
-				<section data-markdown>
-					<script type="text/template">
-						## Markdown support
-
-						Write content using inline or external Markdown.
-						Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-
-						```
-						<section data-markdown>
-						  ## Markdown support
-
-						  Write content using inline or external Markdown.
-						  Instructions and more info available in the [readme](https://github.com/hakimel/reveal.js#markdown).
-						</section>
-						```
-					</script>
-				</section>
-
-				<section>
-					<section id="fragments">
-						<h2>Fragments</h2>
-						<p>Hit the next arrow...</p>
-						<p class="fragment">... to step through ...</p>
-						<p><span class="fragment">... a</span> <span class="fragment">fragmented</span> <span class="fragment">slide.</span></p>
-
-						<aside class="notes">
-							This slide has fragments which are also stepped through in the notes window.
-						</aside>
-					</section>
-					<section>
-						<h2>Fragment Styles</h2>
-						<p>There's different types of fragments, like:</p>
-						<p class="fragment grow">grow</p>
-						<p class="fragment shrink">shrink</p>
-						<p class="fragment fade-out">fade-out</p>
-						<p class="fragment current-visible">current-visible</p>
-						<p class="fragment highlight-red">highlight-red</p>
-						<p class="fragment highlight-blue">highlight-blue</p>
-					</section>
-				</section>
-
-				<section id="transitions">
-					<h2>Transition Styles</h2>
-					<p>
-						You can select from different transitions, like: <br>
-						<a href="?transition=none#/transitions">None</a> -
-						<a href="?transition=fade#/transitions">Fade</a> -
-						<a href="?transition=slide#/transitions">Slide</a> -
-						<a href="?transition=convex#/transitions">Convex</a> -
-						<a href="?transition=concave#/transitions">Concave</a> -
-						<a href="?transition=zoom#/transitions">Zoom</a>
-					</p>
-				</section>
-
-				<section id="themes">
-					<h2>Themes</h2>
-					<p>
-						reveal.js comes with a few themes built in: <br>
-						<!-- Hacks to swap themes after the page has loaded. Not flexible and only intended for the reveal.js demo deck. -->
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/black.css'); return false;">Black (default)</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">White</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/league.css'); return false;">League</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/sky.css'); return false;">Sky</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/beige.css'); return false;">Beige</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/simple.css'); return false;">Simple</a> <br>
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/serif.css'); return false;">Serif</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/blood.css'); return false;">Blood</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/night.css'); return false;">Night</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/moon.css'); return false;">Moon</a> -
-						<a href="#" onclick="document.getElementById('theme').setAttribute('href','css/theme/solarized.css'); return false;">Solarized</a>
-					</p>
-				</section>
-
-				<section>
-					<section data-background="#dddddd">
-						<h2>Slide Backgrounds</h2>
-						<p>
-							Set <code>data-background="#dddddd"</code> on a slide to change the background color. All CSS color formats are supported.
-						</p>
-						<a href="#" class="navigate-down">
-							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
-						</a>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png">
-						<h2>Image Backgrounds</h2>
-						<pre><code class="hljs">&lt;section data-background="image.png"&gt;</code></pre>
-					</section>
-					<section data-background="https://s3.amazonaws.com/hakim-static/reveal-js/image-placeholder.png" data-background-repeat="repeat" data-background-size="100px">
-						<h2>Tiled Backgrounds</h2>
-						<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background="image.png" data-background-repeat="repeat" data-background-size="100px"&gt;</code></pre>
-					</section>
-					<section data-background-video="https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.mp4,https://s3.amazonaws.com/static.slid.es/site/homepage/v1/homepage-video-editor.webm" data-background-color="#000000">
-						<div style="background-color: rgba(0, 0, 0, 0.9); color: #fff; padding: 20px;">
-							<h2>Video Backgrounds</h2>
-							<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-video="video.mp4,video.webm"&gt;</code></pre>
-						</div>
-					</section>
-					<section data-background="http://i.giphy.com/90F8aUepslB84.gif">
-						<h2>... and GIFs!</h2>
-					</section>
-				</section>
-
-				<section data-transition="slide" data-background="#4d7e65" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						Different background transitions are available via the backgroundTransition option. This one's called "zoom".
-					</p>
-					<pre><code class="hljs">Reveal.configure({ backgroundTransition: 'zoom' })</code></pre>
-				</section>
-
-				<section data-transition="slide" data-background="#b5533c" data-background-transition="zoom">
-					<h2>Background Transitions</h2>
-					<p>
-						You can override background transitions per-slide.
-					</p>
-					<pre><code class="hljs" style="word-wrap: break-word;">&lt;section data-background-transition="zoom"&gt;</code></pre>
-				</section>
-
-				<section>
-					<h2>Pretty Code</h2>
-					<pre><code class="hljs" data-trim contenteditable>
-function linkify( selector ) {
-  if( supports3DTransforms ) {
-
-    var nodes = document.querySelectorAll( selector );
-
-    for( var i = 0, len = nodes.length; i &lt; len; i++ ) {
-      var node = nodes[i];
-
-      if( !node.className ) {
-        node.className += ' roll';
-      }
-    }
-  }
-}
-					</code></pre>
-					<p>Code syntax highlighting courtesy of <a href="http://softwaremaniacs.org/soft/highlight/en/description/">highlight.js</a>.</p>
-				</section>
-
-				<section>
-					<h2>Marvelous List</h2>
+					<h2>前備知識</h2>
 					<ul>
-						<li>No order here</li>
-						<li>Or here</li>
-						<li>Or here</li>
-						<li>Or here</li>
+						<li>線段樹與Treap</li>
+						<li>線段樹與Treap</li>
+						<li>線段樹與Treap</li>
 					</ul>
 				</section>
-
 				<section>
-					<h2>Fantastic Ordered List</h2>
+					<h2>Content</h2>
 					<ol>
-						<li>One is smaller than...</li>
-						<li>Two is smaller than...</li>
-						<li>Three!</li>
+						<li>更多的Treap</li>
+						<li>穿越時空的線段樹與Treap</li>
+						<li>擁抱分治，向資結說不</li>
 					</ol>
 				</section>
-
 				<section>
-					<h2>Tabular Tables</h2>
-					<table>
-						<thead>
-							<tr>
-								<th>Item</th>
-								<th>Value</th>
-								<th>Quantity</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Apples</td>
-								<td>$1</td>
-								<td>7</td>
-							</tr>
-							<tr>
-								<td>Lemonade</td>
-								<td>$2</td>
-								<td>18</td>
-							</tr>
-							<tr>
-								<td>Bread</td>
-								<td>$3</td>
-								<td>2</td>
-							</tr>
-						</tbody>
-					</table>
+					<section>
+						<h2>Treap 小複習</h2>
+						兩種性質 <br>
+						兩種操作 <br>
+					</section>
+					<section>
+						<h2>兩種性質</h2>
+						<ul>
+							<li>堆(Heap)性質：每個點記 pri ，子樹的 pri 都比我小</li>
+							<li>樹(Tree)性質：左子樹 key 都比我小，右子樹 key 都比我大</li>
+						</ul>
+					</section>
+					<section>
+						<img src="https://docs.google.com/drawings/d/1-TFdaa4pHLqF9N9w18pwYGgFTTbXVbRa5M23fr3bLRc/pub?w=960&h=720" alt="" />
+					</section>
+					<section>
+						<h2>兩種操作</h2>
+						<ul>
+							<li>
+								<code class="c++">merge(Treap *a, Treap *b)</code>
+							</li>
+							<li>
+								<code class="c++">split(Treap *t, int k)</code>
+							</li>
+						</ul>
+					</section>
 				</section>
-
 				<section>
-					<h2>Clever Quotes</h2>
-					<p>
-						These guys come in two forms, inline: <q cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;The nice thing about standards is that there are so many to choose from&rdquo;</q> and block:
-					</p>
-					<blockquote cite="http://searchservervirtualization.techtarget.com/definition/Our-Favorite-Technology-Quotations">
-						&ldquo;For years there has been a theory that millions of monkeys typing at random on millions of typewriters would
-						reproduce the entire works of Shakespeare. The Internet has proven this theory to be untrue.&rdquo;
-					</blockquote>
+					因為 pri 隨機給，高度期望 $O(\log N)$
 				</section>
-
 				<section>
-					<h2>Intergalactic Interconnections</h2>
-					<p>
-						You can link between slides internally,
-						<a href="#/2/3">like this</a>.
-					</p>
-				</section>
+					<section id="fragment">
+						<h2>找第 k 小</h2>
+						<p class="fragment"><tt>std::set</tt>不支援</p>
+						<p class="fragment">
+							每個節點記個 sz 表示子樹大小
+						</p>
+						<p class="fragment">
+							在二元樹上走一走， $O(\log N)$
+						</p>
+						<p class="fragment">
+							在 <tt>merge, split</tt> 的時候好好重新算
+						</p>
+					</section>
+					<section>
+						<h2>看 code</h2>
+						<pre>
+							<code class="c++">
+inline int sz( Treap *t ) {
+  return t ? t->sz : 0;
+}
+int kth( Treap *t , int k ) {
+  int lsz = sz( t->l ) + 1;
+  if( lsz < k ) return kth( t->r , k - lsz );
+  else if( lsz == k ) return t->key;
+  else return kth( t->l , k );
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>大家都知道的黑魔法</h2>
+						<pre>
+							<code class="c++">
+#include &lt;bits/extc++.h&gt;
+using namespace __gnu_pbds;
+typedef tree&lt;int,null_type,less&lt;int&gt;
+	,rb_tree_tag,tree_order_statistics_node_update&gt; set_t;
 
+int main()
+{
+  // Insert some entries into s.
+  set_t s;
+  s.insert(12);
+  s.insert(505);
+
+  // The order of the keys should be: 12, 505.
+  assert(*s.find_by_order(0) == 12);
+  assert(*s.find_by_order(3) == 505);
+}
+							</code>
+						</pre>
+					</section>
+				</section>
 				<section>
-					<h2>Speaker View</h2>
-					<p>There's a <a href="https://github.com/hakimel/reveal.js#speaker-notes">speaker view</a>. It includes a timer, preview of the upcoming slide as well as your speaker notes.</p>
-					<p>Press the <em>S</em> key to try it out.</p>
-
-					<aside class="notes">
-						Oh hey, these are some notes. They'll be hidden in your presentation, but you can see them if you open the speaker notes window (hit 's' on your keyboard).
-					</aside>
+					<section id="fragment">
+						<h2>Treap as 線段樹</h2>
+						<p class="fragment">
+							怎麼用 Treap 代表序列？索引值當 key
+						</p>
+						<p class="fragment">
+							節點上在記一個 val 代表 $a_i$
+						</p>
+					</section>
+					<section id="fragment">
+						<p class="fragment">
+							怎麼紀錄區間的資訊？
+						</p>
+						<p class="fragment">
+							一棵子樹其實就是序列上某個區間
+						</p>
+						<p class="fragment">
+							節點記他子樹（區間）的資訊
+						</p>
+					</section>
 				</section>
-
 				<section>
-					<h2>Export to PDF</h2>
-					<p>Presentations can be <a href="https://github.com/hakimel/reveal.js#pdf-export">exported to PDF</a>, here's an example:</p>
-					<iframe src="https://www.slideshare.net/slideshow/embed_code/42840540" width="445" height="355" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:3px solid #666; margin-bottom:5px; max-width: 100%;" allowfullscreen> </iframe>
-				</section>
-
+					<section>
+						<h2>Treap 做 RMQ</h2>
+						每個點記個 mx ，代表區間最大值 <br>
+						問區間 $[l, r]$ 就把 key 在 $[l, r]$ 間的節點 split 出來
+					</section>
+					<section>
+						<pre>
+							<code class="c++">
+int rmq( Treap *t , int l , int r ) {
+  Treap *tl , *tr;
+  split( t , l-1 , tl , t );
+  split( t , r , t , tr );
+  int res = mx( t ); // t 代表 a_l......a_r
+  t = merge( merge( tl , t ) , tr );
+  return res;
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						mx 就在 merge, split的時候好好維護
+						<pre>
+							<code class="c++">
+inline void pull( Treap *t ) {
+  t->mx = max( mx( t->l ) , max( t->val , mx( t->r ) ) );
+}
+Treap* merge( Treap *a , Treap *b ) {
+  if( !a || !b ) return a ? a : b;
+  if( a->pri > b->pri ) {
+    a->r = merge( a->r , b );
+    pull( a );
+    return a;
+  } else {
+    b->l = merge( a , b->l );
+    pull( b );
+    return b;
+  }
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						被動到的時候就 pull 一下
+						<pre>
+							<code>
+void split( Treap *t , int x , Treap *&a , Treap *&b ) {
+  if( !t ) a = b = NULL;
+  else if( t->key <= x ) {
+    a = t;
+    split( t->r , x , a->r , b );
+    pull( a );
+  } else {
+    b = t;
+    split( t->l , x , a , b->l );
+    pull( b );
+  }
+}
+							</code>
+						</pre>
+					</section>
+ 				</section>
 				<section>
-					<h2>Global State</h2>
-					<p>
-						Set <code>data-state="something"</code> on a slide and <code>"something"</code>
-						will be added as a class to the document element when the slide is open. This lets you
-						apply broader style changes, like switching the page background.
-					</p>
+					<h2>區間修改呢？</h2>
+					跟線段樹一樣用個懶標記就好了
 				</section>
-
-				<section data-state="customevent">
-					<h2>State Events</h2>
-					<p>
-						Additionally custom events can be triggered on a per slide basis by binding to the <code>data-state</code> name.
-					</p>
-					<pre><code class="javascript" data-trim contenteditable style="font-size: 18px;">
-Reveal.addEventListener( 'customevent', function() {
-	console.log( '"customevent" has fired' );
-} );
-					</code></pre>
-				</section>
-
 				<section>
-					<h2>Take a Moment</h2>
-					<p>
-						Press B or . on your keyboard to pause the presentation. This is helpful when you're on stage and want to take distracting slides off the screen.
-					</p>
+					<section>
+						<h2>EX:動態RMQ</h2>
+						兩種操作： <br>
+						<ul>
+							<li>$a_l, \ldots\ldots, a_r$ 加上 $v$</li>
+							<li>問 $a_l, \ldots\ldots, a_r$ 的最大值</li>
+						</ul>
+					</section>
+					<section id="fragment">
+						懶標記：每個點記個 add 表示他那個區間要加多少
+						<pre>
+							<code>
+void add( Treap *t , int l , int r , int v ) {
+	Treap *tl , *tr;
+  split( t , l-1 , tl , t )
+  split( t , r , t , tr );
+  t->add += v;
+  t = merge( merge( tl , t ) , tr );
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						要動到子樹前記得把標記往下 push
+						<pre>
+							<code>
+void push( Treap *t ) {
+  t->val += t->add;
+  if( t->l ) t->l->add += t->add;
+  if( t->r ) t->r->add += t->add;
+  t->add = 0;
+}
+							</code>
+						</pre>
+					</section>
 				</section>
-
 				<section>
-					<h2>Much more</h2>
+					<section>
+						<h2>真的要存 key 嗎？</h2>
+						其實 key 只是代表我比多少人大 <br>
+						那不就是 rank ，存子樹大小就好 <br>
+					</section>
+					<section>
+						<img src="http://i.imgur.com/OGa2nP6.png" alt="" />
+					</section>
+				</section>
+				<section>
+					<h2>坐上時光機囉</h2>
+					<img src="https://qobzrg.bn1.livefilestore.com/y1mJoftKpOYUTXglUrJLC6Jn4_L2W0MXGOoTAdAU6SEBPNBvJThWTqaogSazd9pZRHNgsIK9LCtYII-yCiOps8Wu9wuS3hMyw_h-XQX78igwWCTokb5u3M06A/%E6%97%B6%E5%85%89%E6%97%85%E8%A1%8C.jpg?psid=1" alt="" />
+				</section>
+				<section>
+					<h2>EX:UVA 12538</h2>
+					實作資料結構支援 <br>
 					<ul>
-						<li>Right-to-left support</li>
-						<li><a href="https://github.com/hakimel/reveal.js#api">Extensive JavaScript API</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#auto-sliding">Auto-progression</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#parallax-background">Parallax backgrounds</a></li>
-						<li><a href="https://github.com/hakimel/reveal.js#keyboard-bindings">Custom keyboard bindings</a></li>
+						<li>把字串 $s$ 插在第 $p$ 個字後面</li>
+						<li>把第 $p$ 個字後面 $c$ 個字砍掉</li>
+						<li>印出第 $v$ 個版本第 $p$ 個字後面 $c$ 個字</li>
 					</ul>
 				</section>
-
-				<section style="text-align: left;">
-					<h1>THE END</h1>
-					<p>
-						- <a href="http://slides.com">Try the online editor</a> <br>
-						- <a href="https://github.com/hakimel/reveal.js">Source code &amp; documentation</a>
-					</p>
+				<section>
+					不問過去版本的話是 Treap 亂做水題 <br>
+					莫非每個版本做一棵新的 Treap？ $a+b$ <br>
+					可持久化它？！？！？！
 				</section>
-
+				<section>
+					<section>
+						<h1>YES</h1>
+						但是不用複製整顆 Treap <br>
+						Copy-On-Write，改到再複製
+					</section>
+					<section>
+						<img src="img/persistent-tree.jpg" alt="" />
+					</section>
+					<section>
+						因為 merge, split 也最多動到 $O(\log N)$ 個點 <br>
+						空間 $O(N \log N)$
+					</section>
+					<section>
+						<h2>看看 code</h2>
+						<pre>
+							<code class="c++">
+Node* merge( Node *a , Node *b ) {
+  if( !a || !b ) return a ? a : b;
+  Node *res;
+// !?!?!?!?
+  if( myRnd() % ( sz( a ) + sz( b ) ) < sz( a ) ) {
+    res = new Node( *a );
+    res->r = merge( a->r , b );
+  }
+  else {
+    res = new ( ptr++ ) Node( *b );
+    res->l = merge( a , b->l );
+  }
+  pull( res );
+  return res;
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<pre>
+							<code class="c++">
+void split( Node *t , int k , Node *&a , Node *&b ) {
+  if( !t ) a = b = NULL;
+  else if( sz( t->l ) + 1 <= k ) {
+    a = new Node( *t );
+    split( t->r , k-1-sz(t->l) , a->r , b );
+    pull( a );
+  }
+  else {
+    b = new ( ptr++ ) Node( *t );
+    split( t->l , k , a , b->l );
+    pull( b );
+  }
+}
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>連 pri 都不用記了？！？！</h2>
+						可以這樣想： <br>
+						兩顆樹 a, b， <br>
+						最大的 pri 出現在 a 的機率 $= \frac{size(a)}{size(a)+size(b)}$
+					</section>
+				</section>
+				<section>
+          <h2>當可持久遇上線段樹</h2>
+          一樣是動到哪裡複製哪裡 <br>
+          <tt>x, 2x, 2x+1</tt>型線段樹會壞掉
+				</section>
+        <section>
+          <h2>EX:區間第 k 小</h2>
+          序列 $a_1,\ldots\ldots,a_N, 1 \le a_i \le N$ <br>
+          每次問區間 $[l, r]$ 裡第 k 小是誰
+        </section>
+        <section>
+          <section>
+            <h2>小時候作法</h2>
+            <tt>vector</tt> 套線段樹佐二分搜 $O(Q \log^3 N)$ <br>
+            有更好的複雜度嗎？QQ
+          </section>
+          <section>
+            <h2>線段樹 as 平衡樹</h2>
+            以數值當 index <br>
+            用線段樹維護數值區間總出現次數 <br>
+            在樹上走來走去就好
+          </section>
+          <section>
+            <h2>想想可持久</h2>
+            依序把 $a_1,a_2,\ldots\ldots,a_n$ 插入 <br>
+            維護每次插入的版本 $s_i$ (插入 $a_1,a_2,\ldots\ldots,a_i$ 後的樹)
+          </section>
+          <section>
+            <h2>$[1,r]$ 式詢問勝利</h2>
+            直接查 $s_r$
+          </section>
+          <section>
+            <h2>$[l, r]$ 式詢問勝利</h2>
+            因為線段樹結構固定 <br>
+            $s_{l-1}, s_r$ 相對應節點上的和相減就是插入 $[l, r]$ 的樣子 <br>
+            同時在兩棵樹走 $O(\log N)$ 勝利
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>BIT</h2>
+            翻轉教室，自己讀 <br>
+          </section>
+          <section>
+            好寫
+          </section>
+          <section>
+            單點加值
+          </section>
+          <section>
+            問前綴和
+          </section>
+        </section>
+        <section>
+          <h2>Why 離線?</h2>
+          <ul>
+            <li>在線作法不好做</li>
+            <li>在線太久太滿</li>
+          </ul>
+        </section>
+        <section>
+          <h2>整體二分</h2>
+          <h2>操作分治</h2>
+        </section>
 			</div>
 
 		</div>
@@ -392,6 +448,7 @@ Reveal.addEventListener( 'customevent', function() {
 				progress: true,
 				history: true,
 				center: true,
+        slideNumber: true,
 
 				transition: 'slide', // none/fade/slide/convex/concave/zoom
 
@@ -402,7 +459,9 @@ Reveal.addEventListener( 'customevent', function() {
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'plugin/notes/notes.js', async: true },
+					// MathJax
+        	{ src: 'plugin/math/math.js', async: true }
 				]
 			});
 
